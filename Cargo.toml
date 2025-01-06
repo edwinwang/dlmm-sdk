@@ -3,9 +3,14 @@ members = ["programs/*", "cli", "market_making", "commons"]
 resolver = "2"
 
 [workspace.dependencies]
-anchor-lang = "0.28.0"
-anchor-spl = "0.28.0"
-anchor-client = "0.28.0"
+solana-client = "2.1.4"
+solana-derivation-path = "2.1.4"
+solana-zk-sdk = "2.1.4"
+solana-transaction-status = "2.1.4"
+solana-sdk = "2.1.4"
+anchor-lang = {git="https://github.com/coral-xyz/anchor", rev="2ae3774639e299e4eb64d27176989699056f4364", directory="lang"}
+anchor-spl = {git="https://github.com/coral-xyz/anchor", rev="2ae3774639e299e4eb64d27176989699056f4364", directory="spl"}
+anchor-client = {git="https://github.com/coral-xyz/anchor", rev="2ae3774639e299e4eb64d27176989699056f4364", directory="client"}
 clap = "4.3.3"
 anyhow = "1.0.71"
 shellexpand = "3.1.0"
@@ -13,10 +18,9 @@ rust_decimal = "1.31.0"
 spl-associated-token-account = "1"
 mpl-token-metadata = "3.0.1"
 rand = "0.8.5"
-tokio = "~1.14.1"
+tokio = "1.42.0"
 serde_json = "1.0.48"
 serde = "1.0.104"
-solana-transaction-status = "1.16.12"
 env_logger = "0.9.0"
 log = "0.4.17"
 bs58 = "0.5.0"
@@ -25,6 +29,7 @@ hyper = "0.14.17"
 routerify = "3"
 ureq = "2.0.0"
 bincode = "1.3.3"
+zeroize = "1.8.1"
 commons = { path = "./commons" }
 
 [profile.release]
@@ -36,3 +41,7 @@ codegen-units = 1
 opt-level = 3
 incremental = false
 codegen-units = 1
+
+[patch.crates-io.curve25519-dalek]
+git = "https://github.com/anza-xyz/curve25519-dalek.git"
+rev = "b500cdc2a920cd5bff9e2dd974d7b97349d61464"
