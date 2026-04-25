@@ -1,7 +1,13 @@
+// anchor 1.0: declare_program! macro requires anchor_lang in scope as a crate
+pub extern crate anchor_lang;
 use anchor_lang::prelude::declare_program;
 use anyhow::*;
 
-declare_program!(dlmm);
+mod codegen {
+    pub use anchor_lang;
+    super::declare_program!(dlmm);
+}
+pub use codegen::dlmm;
 
 use dlmm::accounts::*;
 use dlmm::types::*;
